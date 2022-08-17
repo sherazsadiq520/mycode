@@ -1,3 +1,15 @@
+[aristaswitchessecure]
+; description of our arista inventory
+sw-1
+sw-2
+    
+[aristaswitchessecure:vars]
+; variables specific to arista switches
+ansible_network_os=eos
+ansible_connection=network_cli
+ansible_become=yes
+ansible_become_method=enable
+ansible_user=admin
 [planetexpress]
 bender      ansible_host=10.10.2.3 ansible_user=bender ansible_python_interpreter=/usr/bin/python3 fileuser=bender
 fry         ansible_host=10.10.2.4 ansible_user=fry ansible_python_interpreter=/usr/bin/python3 fileuser=fry
@@ -27,4 +39,8 @@ sw-1
 sw-2
 
 [eosswitches:vars]
+[defaults]
+host_key_checking = False
+inventory = /home/student/mycode/inv/dev/
+roles_path = /home/student/mycode/roles/
 ansible_network_os=eos
